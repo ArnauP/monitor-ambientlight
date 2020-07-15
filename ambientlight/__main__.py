@@ -9,6 +9,8 @@ from .utils import utils
 
 def main():
     app = QApplication([])
+    app.setWindowIcon(QIcon(utils.get_path('ambientlight/resources/icons/app_icon.svg')))
+    utils.load_style_sheet(utils.get_path('ambientlight/resources/css/style.css'), app)
     main_ctrl = MainController()
     app.exec_()
 

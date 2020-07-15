@@ -1,5 +1,8 @@
 from PyQt5.QtWidgets import QLabel, QWidget, QHBoxLayout, QVBoxLayout, QPushButton, QComboBox, QSpacerItem, QSizePolicy, QLineEdit
 from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QPixmap
+
+from ..utils import utils
 
 import mss
 
@@ -39,12 +42,20 @@ class MainView(QWidget):
     
     def build_ui(self):
         self.lyt_main = QVBoxLayout()
+        lyt_img = QHBoxLayout()
         lyt_monitor = QHBoxLayout()
         lyt_led_sides = QHBoxLayout()
         lyt_led_top = QHBoxLayout()
         lyt_action = QHBoxLayout()
 
         h_spacer = QSpacerItem(0, 40, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        lbl_img = QLabel()
+        pixmap = QPixmap(utils.get_path('ambientlight/resources/icons/app_icon.svg'))
+        pixmap_resized = pixmap.scaled(150, 150, Qt.KeepAspectRatio)
+        lbl_img.setPixmap(pixmap_resized)
+        lyt_img.setAlignment(Qt.AlignCenter)
+        lyt_img.addWidget(lbl_img)
 
         self.lbl_info = QLabel('Monitor')
         monitors = mss.mss().monitors
@@ -62,11 +73,13 @@ class MainView(QWidget):
         self.le_num_led_sides = QLineEdit()
         lyt_led_sides.addWidget(self.lbl_num_led_sides)
         lyt_led_sides.addWidget(self.le_num_led_sides)
+        lyt_led_sides.setAlignment(Qt.AlignCenter)
 
         self.lbl_num_led_top = QLabel('Nº LED top')
         self.le_num_led_top = QLineEdit()
         lyt_led_top.addWidget(self.lbl_num_led_top)
         lyt_led_top.addWidget(self.le_num_led_top)
+        lyt_led_top.setAlignment(Qt.AlignCenter)
 
         self.btn_ok = QPushButton('OK')
         self.btn_cancel = QPushButton('Cancel')
@@ -75,14 +88,16 @@ class MainView(QWidget):
         lyt_action.addWidget(self.btn_ok)
         lyt_action.addItem(h_spacer)
         lyt_action.addWidget(self.btn_cancel)
+        lyt_action.setAlignment(Qt.AlignCenter)
 
+        self.lyt_main.addLayout(lyt_img)
         self.lyt_main.addLayout(lyt_monitor)
         self.lyt_main.addLayout(lyt_led_sides)
         self.lyt_main.addLayout(lyt_led_top)
         self.lyt_main.addLayout(lyt_action)
         self.setLayout(self.lyt_main)
 
-        # self.setFixedSize(300, 250)
+        self.setFixedSize(400, 350)
         self.setWindowTitle('Responsive ambientlight')
         self.show()
 
