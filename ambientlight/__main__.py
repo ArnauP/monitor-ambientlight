@@ -1,12 +1,14 @@
 from PyQt5.QtWidgets import QApplication
+from PyQt5.QtGui import QIcon
 
 from .controllers.simulation_controller import SimulationController
 from .controllers.main_controller import MainController
 
+from .utils import utils
+
 
 def main():
     app = QApplication([])
-    # sim_ctrl = SimulationController(15, 25, 60)
     main_ctrl = MainController()
     app.exec_()
 

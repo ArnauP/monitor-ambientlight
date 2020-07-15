@@ -11,13 +11,20 @@ from ..views.main_view import MainView
 
 
 class MainController(QObject):
-
+    """
+    Provides control for all of the main actions of the software
+    """
     def __init__(self):
         super(MainController, self).__init__()
         self.__view = MainView(self)
 
     def simulate_clicked(self):
-        self.simulation_ctrl = SimulationController(self.__view.monitor_idx, 15, 25, 60)
+        self.simulation_ctrl = SimulationController(
+            self.__view.monitor_idx, 
+            self.__view.num_led_sides, 
+            self.__view.num_led_top, 
+            fade_speed=60
+            )
 
     def ok_clicked(self):
         print('Monitor index {}'.format(self.__view.monitor_idx))
