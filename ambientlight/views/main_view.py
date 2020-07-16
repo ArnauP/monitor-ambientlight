@@ -80,7 +80,7 @@ class MainView(QWidget):
         lyt_inputs.setAlignment(Qt.AlignCenter)
         lyt_inputs.setContentsMargins(20, 0, 20, 0)
 
-        self.btn_ok = QPushButton('OK')
+        self.btn_ok = QPushButton('Start')
         self.btn_cancel = QPushButton('Cancel')
         self.btn_ok.clicked.connect(self.ok_clicked)
         self.btn_cancel.clicked.connect(self.cancel_clicked)

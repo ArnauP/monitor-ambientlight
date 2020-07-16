@@ -90,3 +90,8 @@ QLineEdit
     max-width: 150px;
     height: 15px;
 }
+
+QLabel
+{
+    border-radius: 5px;
+}
