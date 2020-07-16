@@ -1,7 +1,6 @@
 QWidget
 {
     color: #eff0f1;
-    font-family: "Oswald", sans-serif;
     background-color: #36393F;
     background-clip: border;
     border-image: none;
@@ -55,30 +54,6 @@ QComboBox:on
     padding-top: 3px;
     padding-left: 4px;
     selection-background-color: #4a4a4a;
-}
-
-QComboBox::drop-down
-{
-    subcontrol-origin: padding;
-    subcontrol-position: top right;
-    width: 15px;
-
-    border-left-width: 0px;
-    border-left-color: darkgray;
-    border-left-style: solid;
-    border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px;
-}
-
-QComboBox::down-arrow
-{
-    image: url(:/style/ingenia/down_arrow_disabled.png);
-}
-
-QComboBox::down-arrow:on, QComboBox::down-arrow:hover,
-QComboBox::down-arrow:focus
-{
-    image: url(:/style/ingenia/down_arrow.png);
 }
 
 QLineEdit

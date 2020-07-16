@@ -96,7 +96,7 @@ class MainView(QWidget):
         self.setLayout(self.lyt_main)
 
         self.setFixedSize(400, 380)
-        self.setWindowTitle('Responsive ambientlight')
+        self.setWindowTitle('Ambilight')
         self.show()
 
     @property
