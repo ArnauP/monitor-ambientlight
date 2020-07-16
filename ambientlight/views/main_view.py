@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QLabel, QWidget, QHBoxLayout, QVBoxLayout, QPushButton, QComboBox, QSpacerItem, QSizePolicy, QLineEdit
+from PyQt5.QtWidgets import QLabel, QWidget, QHBoxLayout, QVBoxLayout, QGridLayout, QPushButton, QComboBox, QSpacerItem, QSizePolicy, QLineEdit
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap
 
@@ -43,9 +43,7 @@ class MainView(QWidget):
     def build_ui(self):
         self.lyt_main = QVBoxLayout()
         lyt_img = QHBoxLayout()
-        lyt_monitor = QHBoxLayout()
-        lyt_led_sides = QHBoxLayout()
-        lyt_led_top = QHBoxLayout()
+        lyt_inputs = QGridLayout()
         lyt_action = QHBoxLayout()
 
         h_spacer = QSpacerItem(0, 40, QSizePolicy.Expanding, QSizePolicy.Minimum)
@@ -55,6 +53,7 @@ class MainView(QWidget):
         pixmap_resized = pixmap.scaled(150, 150, Qt.KeepAspectRatio)
         lbl_img.setPixmap(pixmap_resized)
         lyt_img.setAlignment(Qt.AlignCenter)
+        lyt_img.setContentsMargins(0, 0, 0, 40)
         lyt_img.addWidget(lbl_img)
 
         self.lbl_info = QLabel('Monitor')
@@ -64,22 +63,22 @@ class MainView(QWidget):
             self.cmb_monitor.addItem('Monitor {} ({}x{})'.format(idx_monitor + 1, monitors[idx_monitor]['width'], monitors[idx_monitor]['height']))
         self.btn_simulate = QPushButton('Simulate')
         self.btn_simulate.clicked.connect(self.simulate_clicked)
-        lyt_monitor.addWidget(self.lbl_info)
-        lyt_monitor.addWidget(self.cmb_monitor)
-        lyt_monitor.addWidget(self.btn_simulate)
-        lyt_monitor.setAlignment(Qt.AlignCenter)
+        lyt_inputs.addWidget(self.lbl_info, 0, 0)
+        lyt_inputs.addWidget(self.cmb_monitor, 0, 1)
+        lyt_inputs.addWidget(self.btn_simulate, 0, 2)
 
         self.lbl_num_led_sides = QLabel('Nº LED sides')
         self.le_num_led_sides = QLineEdit()
-        lyt_led_sides.addWidget(self.lbl_num_led_sides)
-        lyt_led_sides.addWidget(self.le_num_led_sides)
-        lyt_led_sides.setAlignment(Qt.AlignCenter)
+        lyt_inputs.addWidget(self.lbl_num_led_sides, 1, 0)
+        lyt_inputs.addWidget(self.le_num_led_sides, 1, 1)
 
         self.lbl_num_led_top = QLabel('Nº LED top')
         self.le_num_led_top = QLineEdit()
-        lyt_led_top.addWidget(self.lbl_num_led_top)
-        lyt_led_top.addWidget(self.le_num_led_top)
-        lyt_led_top.setAlignment(Qt.AlignCenter)
+        lyt_inputs.addWidget(self.lbl_num_led_top, 2, 0)
+        lyt_inputs.addWidget(self.le_num_led_top, 2, 1)
+
+        lyt_inputs.setAlignment(Qt.AlignCenter)
+        lyt_inputs.setContentsMargins(20, 0, 20, 0)
 
         self.btn_ok = QPushButton('OK')
         self.btn_cancel = QPushButton('Cancel')
@@ -89,15 +88,14 @@ class MainView(QWidget):
         lyt_action.addItem(h_spacer)
         lyt_action.addWidget(self.btn_cancel)
         lyt_action.setAlignment(Qt.AlignCenter)
+        lyt_action.setContentsMargins(20, 20, 20, 0)
 
         self.lyt_main.addLayout(lyt_img)
-        self.lyt_main.addLayout(lyt_monitor)
-        self.lyt_main.addLayout(lyt_led_sides)
-        self.lyt_main.addLayout(lyt_led_top)
+        self.lyt_main.addLayout(lyt_inputs)
         self.lyt_main.addLayout(lyt_action)
         self.setLayout(self.lyt_main)
 
-        self.setFixedSize(400, 350)
+        self.setFixedSize(400, 380)
         self.setWindowTitle('Responsive ambientlight')
         self.show()
 
