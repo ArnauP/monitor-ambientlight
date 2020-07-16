@@ -1,7 +1,7 @@
 QWidget
 {
     color: #eff0f1;
-    font-family: Verdana, Geneva, sans-serif;
+    font-family: "Oswald", sans-serif;
     background-color: #36393F;
     background-clip: border;
     border-image: none;
@@ -13,13 +13,15 @@ QWidget
 
 QPushButton
 {
-    border-width: 1px;
     background-color: #7289DA;
+    width: 60px;
     font-weight: bold;
-    border-style: solid;
     padding: 5px;
-    border-radius: 2px;
+    border-width: 0px;
+    border-style: solid;
+    border-radius: 3px;
     outline: none;
+    width: 70px;
 }
 
 QPushButton:disabled
@@ -34,4 +36,57 @@ QPushButton:pressed
     background-color: #373737;
     padding-top: -15px;
     padding-bottom: -17px;
+}
+
+QComboBox
+{
+    border-style: solid;
+    border: 1px solid #76797C;
+    border-radius: 2px;
+    padding: 5px;
+    width: 130px;
+    height: 15px;
+    background-color: #232629;
+    selection-background-color: #007ACC;
+}
+
+QComboBox:on
+{
+    padding-top: 3px;
+    padding-left: 4px;
+    selection-background-color: #4a4a4a;
+}
+
+QComboBox::drop-down
+{
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 15px;
+
+    border-left-width: 0px;
+    border-left-color: darkgray;
+    border-left-style: solid;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+QComboBox::down-arrow
+{
+    image: url(:/style/ingenia/down_arrow_disabled.png);
+}
+
+QComboBox::down-arrow:on, QComboBox::down-arrow:hover,
+QComboBox::down-arrow:focus
+{
+    image: url(:/style/ingenia/down_arrow.png);
+}
+
+QLineEdit
+{
+    background-color: #232629;
+    border: 1px solid #76797C;
+    border-radius: 2px;
+    padding: 5px;
+    max-width: 150px;
+    height: 15px;
 }
