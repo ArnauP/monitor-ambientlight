@@ -1,14 +1,11 @@
-from PyQt5.QtWidgets import QLabel, QWidget, QHBoxLayout, QVBoxLayout
-from PyQt5.QtCore import Qt, pyqtSignal, QObject, QThread
-from PyQt5.QtGui import QIcon, QFont, QCursor
+from PyQt5.QtCore import pyqtSignal, QObject, QThread
 
-import serial, math, time, mss, numpy, cv2
+import mss
 from PIL import Image, ImageStat
 from colorsys import rgb_to_hls, hls_to_rgb
 
 from time import sleep
 import asyncio
-import np
 
 from ..views.simulation_view import SimulationView
 

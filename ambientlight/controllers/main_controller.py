@@ -1,10 +1,4 @@
-from PyQt5.QtWidgets import QLabel, QWidget, QHBoxLayout, QVBoxLayout
-from PyQt5.QtCore import Qt, pyqtSignal, QObject, QThread
-from PyQt5.QtGui import QIcon, QFont, QCursor
-
-from time import sleep
-import asyncio
-import np
+from PyQt5.QtCore import QObject
 
 from ..controllers.simulation_controller import SimulationController
 from ..views.main_view import MainView

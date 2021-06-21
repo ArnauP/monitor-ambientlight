@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[requires]
+python_version = "3.6.5"
+
+[packages]
+"pyqt5" = "==5.11.2"
+pynput = "==1.6.8"
+sip = "==6.1.0"
+serial = "==0.0.97"
+mss = "==6.1.0"
+numpy = "==1.17.2"
+pillow = "==8.2.0"
+
+[dev-packages]
+pyinstaller = "==3.4"
+sphinx = "==3.2.0"
+pyqt_distutils = "==0.7.3"
