@@ -1,5 +1,4 @@
 from PyQt5.QtWidgets import QLabel, QWidget, QHBoxLayout, QVBoxLayout, QSpacerItem, QSizePolicy
-from PyQt5.QtCore import Qt
 
 # LED simulated sizes
 LED_WIDTH = 50
